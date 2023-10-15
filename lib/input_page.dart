@@ -4,7 +4,8 @@ import 'package:bmi_calculator/reusable_card.dart';
 import 'gender_icons.dart';
 
 const bottonContainerHeight = 80.0;
-const reusableCardColor = Color(0xFF1D1E33);
+const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111328);
 const bottomContainerColor = Color(0xFFEB1555);
 
 class InputPage extends StatefulWidget {
@@ -13,6 +14,9 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inactiveCardColor;
+  Color femaleCardColor = inactiveCardColor;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,7 +34,7 @@ class _InputPageState extends State<InputPage> {
                     print('MALE was clicked');
                   },
                   child: ReusableCard(
-                    colour: reusableCardColor,
+                    colour: maleCardColor,
                     cardChild: GenderIcons(
                       genderIcon: FontAwesomeIcons.mars,
                       gender: 'MALE',
@@ -44,7 +48,7 @@ class _InputPageState extends State<InputPage> {
                     print('FEMALE was clicked');
                   },
                   child: ReusableCard(
-                    colour: reusableCardColor,
+                    colour: femaleCardColor,
                     cardChild: GenderIcons(
                       genderIcon: FontAwesomeIcons.venus,
                       gender: 'FEMALE',
@@ -56,7 +60,7 @@ class _InputPageState extends State<InputPage> {
           )),
           Expanded(
             child: ReusableCard(
-              colour: reusableCardColor,
+              colour: activeCardColor,
             ),
           ),
           Expanded(
@@ -64,12 +68,12 @@ class _InputPageState extends State<InputPage> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    colour: reusableCardColor,
+                    colour: activeCardColor,
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    colour: reusableCardColor,
+                    colour: activeCardColor,
                   ),
                 ),
               ],
