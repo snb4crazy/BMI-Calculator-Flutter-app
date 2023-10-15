@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 const bottonContainerHeight = 80.0;
 const reusableCardColor = Color(0xFF1D1E33);
@@ -24,11 +25,19 @@ class _InputPageState extends State<InputPage> {
               Expanded(
                 child: ReusableCard(
                   colour: reusableCardColor,
+                  cardChild: GenderIcons(
+                    genderIcon: FontAwesomeIcons.mars,
+                    gender: 'MALE',
+                  ),
                 ),
               ),
               Expanded(
                 child: ReusableCard(
                   colour: reusableCardColor,
+                  cardChild: GenderIcons(
+                    genderIcon: FontAwesomeIcons.mars,
+                    gender: 'FEMALE',
+                  ),
                 ),
               ),
             ],
@@ -68,17 +77,49 @@ class _InputPageState extends State<InputPage> {
 
 class ReusableCard extends StatelessWidget {
   final Color colour;
+  final Widget cardChild;
 
-  ReusableCard({@required this.colour});
+  ReusableCard({@required this.colour, this.cardChild});
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: cardChild,
       margin: EdgeInsets.all(15.0),
       decoration: BoxDecoration(
         color: this.colour,
         borderRadius: BorderRadius.circular(10.0),
       ),
+    );
+  }
+}
+
+class GenderIcons extends StatelessWidget {
+  final IconData genderIcon;
+  final String gender;
+
+  GenderIcons({this.genderIcon, this.gender});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          FontAwesomeIcons.mars,
+          size: 80.0,
+        ),
+        SizedBox(
+          height: 15.0,
+        ),
+        Text(
+          'MALE',
+          style: TextStyle(
+            fontSize: 18.0,
+            color: Color(0xFF8D8E88),
+          ),
+        )
+      ],
     );
   }
 }
