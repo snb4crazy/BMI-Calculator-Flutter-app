@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const bottonContainerHeight = 80.0;
+const reusableCardColor = Color(0xFF1D1E33);
+const bottonContainerColor = Color(0xFFEB1555);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -49,6 +53,12 @@ class _InputPageState extends State<InputPage> {
                 ),
               ],
             ),
+          ),
+          Container(
+            color: bottonContainerColor,
+            margin: const EdgeInsetsDirectional.only(top: 10.0),
+            width: double.infinity,
+            height: bottonContainerHeight,
           ),
         ],
       ),
