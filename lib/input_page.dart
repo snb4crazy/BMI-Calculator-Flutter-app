@@ -35,7 +35,7 @@ class _InputPageState extends State<InputPage> {
                 child: ReusableCard(
                   colour: reusableCardColor,
                   cardChild: GenderIcons(
-                    genderIcon: FontAwesomeIcons.mars,
+                    genderIcon: FontAwesomeIcons.venus,
                     gender: 'FEMALE',
                   ),
                 ),
@@ -106,14 +106,14 @@ class GenderIcons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Icon(
-          FontAwesomeIcons.mars,
+          genderIcon,
           size: 80.0,
         ),
         SizedBox(
           height: 15.0,
         ),
         Text(
-          'MALE',
+          gender,
           style: TextStyle(
             fontSize: 18.0,
             color: Color(0xFF8D8E88),
